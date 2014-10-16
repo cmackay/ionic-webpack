@@ -4,7 +4,6 @@
 node_modules/
 platforms/
 plugins/
-www/
 .tmp/
 .sass-cache/
 .DS_Store
