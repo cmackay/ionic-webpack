@@ -3,15 +3,17 @@
 
 module.exports = function ($scope) {
 
+  $scope.title = 'My List';
+
   $scope.list = [{
-    title: 'test 1'
+    title: 'item 1'
   }, {
-    title: 'test 2'
+    title: 'item 2'
   }];
 
   $scope.newTask = function () {
     $scope.list.push({
-      title: 'test ' + ($scope.list.length + 1)
+      title: 'item ' + ($scope.list.length + 1)
     });
   };
 };
