@@ -55,27 +55,29 @@ module.exports = {
 
     // NOTE: this helps build speed on larger libraries that do not use commonjs
     noParse: [
-      /node_modules[\/\\]ionic/
+      /bower_components/
     ]
   },
 
   resolve: {
     root: [
-      path.resolve('app')
+      path.join(__dirname, 'app'),
+      path.join(__dirname, 'bower_components'),
+      path.join(__dirname, 'node_modules'),
     ],
     moduleDirectories: [
-      'node_modules'
+      'bower_components',
+      'node_modules',
     ],
     alias: {
-      'ionic-angular' : 'ionic/release/js/ionic-angular',
-      'angular'       : 'ionic/release/js/angular/angular',
-      'ngAnimate'     : 'ionic/release/js/angular/angular-animate',
-      'ngSanitize'    : 'ionic/release/js/angular/angular-sanitize',
-      'ui.router'     : 'ionic/release/js/angular-ui/angular-ui-router'
     }
   },
 
   plugins: [
+    new webpack.ResolverPlugin(
+      new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin(
+        'bower.json', ['main'])
+    ),
     new webpack.DefinePlugin({
       'process.env': {
         // This has effect on the react lib size

@@ -16,4 +16,5 @@ module.exports = function ($scope) {
       title: 'item ' + ($scope.list.length + 1)
     });
   };
+
 };

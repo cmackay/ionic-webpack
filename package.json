@@ -3,10 +3,12 @@
   "version": "0.0.1",
   "description": "ionic webpack starter",
   "scripts": {
-    "install": "./node_modules/.bin/napa"
+    "install": "./node_modules/.bin/bower install && ./node_modules/.bin/gulp"
   },
   "devDependencies": {
+    "bower": "^1.3.12",
     "css-loader": "^0.9.0",
+    "d3": "^3.4.13",
     "del": "^0.1.3",
     "exports-loader": "^0.6.2",
     "file-loader": "^0.7.2",
@@ -16,15 +18,11 @@
     "html-webpack-plugin": "^1.1.0",
     "json-loader": "^0.5.1",
     "lodash": "^2.4.1",
-    "napa": "^1.0.1",
     "open": "0.0.5",
     "sass-loader": "^0.2.0",
     "style-loader": "^0.8.1",
     "url-loader": "^0.5.5",
     "webpack": "^1.4.5",
     "webpack-dev-server": "^1.6.5"
-  },
-  "napa": {
-    "ionic": "driftyco/ionic"
   }
 }

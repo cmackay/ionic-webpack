@@ -12,11 +12,12 @@ var src = scripts[scripts.length - 1].getAttribute('src');
 global.__webpack_public_path__ = src.substr(0, src.lastIndexOf('/') + 1);
 
 // Add Angular/Ionic dependencies
-require('ngAnimate');
-require('ngSanitize');
-require('ui.router');
-require('ionic/release/js/ionic');
-require('ionic-angular');
+require('angular-animate');
+require('angular-sanitize');
+require('angular-ui-router');
+require('ionic/js/ionic');
+require('ionic/js/ionic-angular');
+require('d3');
 
 // Add the styles to the page
 require('./index.scss');
