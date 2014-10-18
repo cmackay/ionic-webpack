@@ -9,7 +9,7 @@ var angular = require('angular');
 module.exports = angular
 
   .module('app.tasks', [
-    require('../common').name
+    require('../common/libs').name
   ])
 
   .config(require('./states'))

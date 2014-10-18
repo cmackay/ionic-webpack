@@ -9,7 +9,7 @@ var angular = require('angular');
 module.exports = angular
 
   .module('app.layout', [
-    require('../common').name
+    require('../common/libs').name
   ])
 
   .directive('appContainer', require('./directives/appContainer'));

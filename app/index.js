@@ -5,7 +5,7 @@
  * Module dependencies
  */
 var angular    = require('angular'),
-  commonModule = require('./common');
+  libsModule = require('./common/libs');
 
 /**
  * Setup App Module
@@ -13,7 +13,7 @@ var angular    = require('angular'),
 var appModule = module.exports = angular
 
   .module('app', [
-    commonModule.name,
+    libsModule.name,
     require('./layout').name,
     require('./tasks').name
   ])
@@ -81,4 +81,4 @@ var appModule = module.exports = angular
 require('./index.scss');
 
 // Bootstrap App Module
-commonModule.ionicBootstrap(appModule, global);
+libsModule.ionicBootstrap(appModule, global);
