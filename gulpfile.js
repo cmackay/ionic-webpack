@@ -18,34 +18,54 @@ gulp.task('webpack', function (callback) {
     if (err) {
       throw new gutil.PluginError('webpack', err);
     }
+
     gutil.log('[webpack]', stats.toString({
       colors: true
     }));
+
     callback();
   });
 });
 
 gulp.task('webpack-dev-server', function (callback) {
   new WebpackDevServer(webpack(webpackConfig), {
+
     contentBase: path.join(__dirname, 'www'),
+
     stats: {
       colors: true
     }
+
   }).listen(8080, 'localhost', function (err) {
     if (err) {
       throw new gutil.PluginError('webpack-dev-server', err);
     }
-    open('http://localhost:8080/webpack-dev-server/index.html');
-    gutil.log('[webpack-dev-server]', 'http://localhost:8080/webpack-dev-server/index.html');
+
+    var startUrl = 'http://localhost:8080/webpack-dev-server/index.html';
+    open(startUrl);
+    gutil.log('[webpack-dev-server]', startUrl);
+
   });
 });
 
 gulp.task('clean', function (cb) {
-  del(['www/**'], cb);
+  del([
+    'www/**/*',
+    '!www/.gitignore'
+  ], {
+    dot: true
+  }, cb);
 });
 
 gulp.task('clean-all', function (cb) {
-  del(['www/**', 'node_modules'], cb);
+  del([
+    'www/**/*',
+    '!www/.gitignore',
+    'node_modules',
+    'bower_components'
+  ], {
+    dot: true
+  }, cb);
 });
 
 gulp.task('install', ['webpack']);
