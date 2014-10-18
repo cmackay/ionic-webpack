@@ -8,12 +8,8 @@ var angular = require('angular');
 
 module.exports = angular
 
-  .module('app.tasks', [
+  .module('app.layout', [
     require('../common').name
   ])
 
-  .config(require('./states'))
-
-  .run(function ($log, $window) {
-    $log.debug('app.tasks module - run');
-  });
+  .directive('appContainer', require('./directives/appContainer'));

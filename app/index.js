@@ -4,23 +4,8 @@
 /**
  * Module dependencies
  */
-var angular = require('angular');
-
-// set the public path
-var scripts = global.document.getElementsByTagName('script');
-var src = scripts[scripts.length - 1].getAttribute('src');
-global.__webpack_public_path__ = src.substr(0, src.lastIndexOf('/') + 1);
-
-// Add Angular/Ionic dependencies
-require('angular-animate');
-require('angular-sanitize');
-require('angular-ui-router');
-require('ionic/js/ionic');
-require('ionic/js/ionic-angular');
-require('d3');
-
-// Add the styles to the page
-require('./index.scss');
+var angular    = require('angular'),
+  commonModule = require('./common');
 
 /**
  * Setup App Module
@@ -28,18 +13,14 @@ require('./index.scss');
 var appModule = module.exports = angular
 
   .module('app', [
-    'ionic',
-    require('./common').name,
+    commonModule.name,
+    require('./layout').name,
     require('./tasks').name
   ])
 
   .constant('version', require('../package.json').version)
 
-  .constant('config', {
-    log: {
-      debug: true
-    }
-  })
+  .constant('config', require('./config'))
 
   .config(function ($compileProvider) {
     $compileProvider.aHrefSanitizationWhitelist(
@@ -96,43 +77,8 @@ var appModule = module.exports = angular
     }, 600);
   });
 
-/**
- * Defers Angular bootstrap until after deviceready event if on a device
- */
-var ionicBootstrap = function (module, window) {
-  if (!window || !window.document) {
-    throw new Error('window and document objects required.');
-  }
-
-  function onDeviceReady () {
-    // bootstrap angular app
-    angular.element(window.document).ready(function () {
-      angular.bootstrap(window.document, [
-        module.name
-      ]);
-    });
-
-    // remove document deviceready listener
-    window.document.removeEventListener('deviceready', onDeviceReady, false);
-  }
-
-  function onWindowLoad () {
-    if (!(!window.cordova && !window.PhoneGap && !window.phonegap)) {
-      // when on device add document deviceready listener
-      window.document.addEventListener('deviceready', onDeviceReady, false);
-
-    } else {
-      // when on browser trigger onDeviceReady
-      onDeviceReady();
-    }
-
-    // remove window load listener
-    window.removeEventListener('load', onWindowLoad, false);
-  }
-
-  // add window load listener
-  window.addEventListener('load', onWindowLoad, false);
-};
+// Add the styles to the page
+require('./index.scss');
 
 // Bootstrap App Module
-ionicBootstrap(appModule, global);
+commonModule.ionicBootstrap(appModule, global);
