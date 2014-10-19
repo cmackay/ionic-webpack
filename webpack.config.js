@@ -51,6 +51,9 @@ module.exports = {
     }, {
       test   : /[\/]angular\.js$/,
       loader : 'exports?angular'
+    }, {
+      test   : /[\/]ionic\.js$/,
+      loader : 'exports?ionic'
     }],
 
     // NOTE: this helps build speed on larger libraries that do not use commonjs

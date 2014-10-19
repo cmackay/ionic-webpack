@@ -16,7 +16,7 @@ module.exports = function ($stateProvider) {
     })
 
     .state('tasks.reports', {
-      url         : '/report',
+      url         : '/reports',
       controller  : require('./controllers/taskReports'),
       template    : require('./controllers/taskReports.html')
     });

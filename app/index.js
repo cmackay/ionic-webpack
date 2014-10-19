@@ -28,7 +28,7 @@ var appModule = module.exports = angular
   })
 
   .config(function ($urlRouterProvider) {
-    $urlRouterProvider.otherwise('/tasks');
+    $urlRouterProvider.otherwise('/tasks/reports');
   })
 
   .run(function ($log, $rootScope, $ionicBackdrop, $timeout) {

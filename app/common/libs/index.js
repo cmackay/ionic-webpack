@@ -22,7 +22,13 @@ var libsModule = module.exports = angular
 
   .module('common.libs', [
     'ionic'
-  ]);
+  ])
+
+  .run(function ($rootScope, $window) {
+    $window.addEventListener('resize', function () {
+      $rootScope.$broadcast('windowResize');
+    });
+  });
 
 libsModule.ionicBootstrap = function (module, window) {
   if (!window || !window.document) {
