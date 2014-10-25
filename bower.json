@@ -2,7 +2,7 @@
   "name": "ionic-webpack",
   "version": "0.0.1",
   "dependencies": {
-    "ionic": "git@github.com:driftyco/ionic-bower.git#master",
+    "ionic": "git@github.com:driftyco/ionic-bower.git#master"
   },
   "resolutions": {
     "ionic": "master",
