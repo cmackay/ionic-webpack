@@ -54,12 +54,7 @@ module.exports = {
     }, {
       test   : /[\/]ionic\.js$/,
       loader : 'exports?ionic'
-    }],
-
-    // NOTE: this helps build speed on larger libraries that do not use commonjs
-    noParse: [
-      /bower_components/
-    ]
+    }]
   },
 
   resolve: {
