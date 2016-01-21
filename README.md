@@ -26,7 +26,7 @@ $ gulp watch
 Adding Cordova Plugins
 
 ```bash
-$ cordova plugins add com.ionic.keyboard org.apache.cordova.console org.apache.cordova.device
+$ cordova plugins add ionic-plugin-keyboard cordova-plugin-console cordova-plugin-device
 ```
 
 Adding Cordova Platforms
